@@ -1,4 +1,5 @@
 const express = require('express');
+var cors = require('cors');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 
@@ -11,6 +12,7 @@ const cookieParser = require('cookie-parser');
 // Init express app
 const app = express();
 
+app.use(cors());
 // Set up middleware
 app.use(methodOverride('_method'));
 
