@@ -1,3 +1,17 @@
+// MULTER
+const multer = require('multer')
+var upload = multer({ dest: 'uploads/' })
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function(req, file, cb) {
+    console.log(file)
+    cb(null, file.originalname)
+  }
+})
+
+
 module.exports = (app, allModels) => {
 
 
@@ -20,6 +34,9 @@ module.exports = (app, allModels) => {
 
   app.get('/upload', pokemonControllerCallbacks.upload);
   app.post('/upload', pokemonControllerCallbacks.submitUpload)
+
+  app.get('/cloudUpload', pokemonControllerCallbacks.cloud);
+  app.post('/cloudUpload', upload.single('img'), pokemonControllerCallbacks.cloudUpload)
 
 
 

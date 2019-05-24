@@ -2,6 +2,7 @@ const express = require('express');
 var cors = require('cors');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
+var cloudinary = require('cloudinary').v2;
 
 /**
  * ===================================
@@ -23,6 +24,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({
   extended: true
 }));
+
 
 // Set react-views to be the default view engine
 const reactEngine = require('express-react-views').createEngine();

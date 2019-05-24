@@ -3,21 +3,18 @@ var React = require("react");
 class Home extends React.Component {
 
   render() {
-    console.log("asdads");
-
-
+    //console.log("encType="multipart/form-data"")
     return (
       <html>
         <head>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         </head>
+
         <body>
           <h3>Hello</h3>
-          <form action="/" enctype="multipart/form-data" method="post">
-                <input type="file" name="upload" multiple />
-                <input type="submit" value="Upload" />
+          <form encType="multipart/form-data" method="post" action="/cloudUpload">
+                <input type="file" name="img" />
+                <button type="submit">submit</button>
             </form>
-          <script src="/script.js"></script>
         </body>
       </html>
     );
