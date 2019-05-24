@@ -87,7 +87,7 @@ module.exports = (db) => {
                 headers: form.getHeaders(),
             })
             .then(res => res.json())
-            .then(json => console.log(json))
+            .then(json => response.send(json))
             .catch(error => console.error(error));
 
         } else {
